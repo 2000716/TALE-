@@ -1,251 +1,195 @@
-
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Startsiden</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>TALE – Mobil</title>
 
-  <link rel="icon" type="image/png" href="https://static.wixstatic.com/media/fd2fb2_1025dfa29fbe4cc5baedccd750f56060~mv2.jpg" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    :root {
-      --primary: #1A1C44;
-      --secondary: #2A2D6B;
-      --white: #ffffff;
-      --glass: rgba(255,255,255,0.08);
-    }
+<style>
+:root {
+  --bg: #1A1C44;
+  --card: rgba(255,255,255,0.12);
+  --text: #ffffff;
+  --accent: #ffffff;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
-    body {
-      background: var(--primary);
-      color: var(--white);
-      min-height: 100vh;
-    }
+body {
+  background: var(--bg);
+  color: var(--text);
+}
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-    }
+/* HEADER */
+header {
+  padding: 1rem;
+  text-align: center;
+}
 
-    header img {
-      height: 48px;
-    }
+header img {
+  height: 42px;
+}
 
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 500;
-      opacity: 0.9;
-    }
+/* HERO */
+.hero {
+  padding: 1.5rem;
+  text-align: center;
+}
 
-    nav a:hover {
-      opacity: 1;
-    }
+.hero h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+}
 
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      padding: 4rem 2rem;
-      align-items: center;
-    }
+.hero p {
+  opacity: 0.9;
+  font-size: 1rem;
+}
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+.cta {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0.8rem 1.4rem;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
+/* SECTIONS */
+section {
+  padding: 1.2rem;
+}
 
-    .cta {
-      display: inline-block;
-      background: var(--white);
-      color: var(--primary);
-      padding: 0.9rem 1.6rem;
-      border-radius: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.2s ease;
-    }
+h2 {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
 
-    .cta:hover {
-      transform: scale(1.05);
-    }
+/* HORIZONTAL BOOK LIST (Storytel-style) */
+.books {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
 
-    .mockup {
-      background: linear-gradient(145deg, var(--glass), rgba(255,255,255,0.15));
-      border-radius: 24px;
-      height: 420px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      opacity: 0.85;
-    }
+.books::-webkit-scrollbar {
+  display: none;
+}
 
-    section {
-      padding: 3rem 2rem;
-    }
+.book {
+  min-width: 130px;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 0.6rem;
+  text-align: center;
+}
 
-    h2 {
-      margin-bottom: 1.5rem;
-    }
+.cover {
+  height: 160px;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  background-size: cover;
+  background-position: center;
+}
 
-    .books {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1.5rem;
-    }
+.book strong {
+  font-size: 0.9rem;
+}
 
-    .book {
-      background: var(--glass);
-      border-radius: 16px;
-      padding: 1rem;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
+.book small {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
 
-    .book:hover {
-      transform: translateY(-6px) scale(1.03);
-      background: rgba(255,255,255,0.12);
-    }
+/* MINI PLAYER */
+.player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .cover {
-      height: 200px;
-      border-radius: 12px;
-      margin-bottom: 0.8rem;
-      background-size: cover;
-      background-position: center;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      opacity: 0.7;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      nav {
-        display: none;
-      }
-    }
-  </style>
+.player button {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <img src="https://static.wixstatic.com/media/fd2fb2_2aadc7e9b83e4b7baa266aee570bd16a~mv2.png" alt="TALE logo">
-  <nav>
-    <a href="#">Utforsk</a>
-    <a href="#">Abonnement</a>
-    <a href="#">Logg inn</a>
-  </nav>
+  <img src="https://static.wixstatic.com/media/fd2fb2_2aadc7e9b83e4b7baa266aee570bd16a~mv2.png" alt="TALE">
 </header>
 
-<main>
+<div class="hero">
+  <h1>Lydbøker for barn</h1>
+  <p>Trygge, morsomme og spennende historier 🎧</p>
+  <a href="#" class="cta">Start å lytte</a>
+</div>
 
-  <section class="hero">
-    <div>
-      <h1>Lydbøker som blir fortalt</h1>
-      <p id="heroText">
-        TALE er en strømmetjeneste for lydbøker – lytt når du vil, hvor du vil.
-      </p>
-      <a href="#" class="cta">Start gratis prøve</a>
+<section>
+  <h2>Fortsett å lytte</h2>
+  <div class="books">
+    <div class="book">
+      <div class="cover" style="background-image:url('https://picsum.photos/300/400?11')"></div>
+      <strong>Eventyrbok</strong><br>
+      <small>Kapittel 3 • 45%</small>
     </div>
-    <div class="mockup">App-forhåndsvisning</div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2>Fortsett å lytte</h2>
-    <div class="books">
-      <div class="book">
-        <div class="cover" style="background-image:url('https://picsum.photos/300/400?10')"></div>
-        <strong>Snømannen</strong><br>
-        <small>Kapittel 8 • 42%</small>
-      </div>
-    </div>
-  </section>
+<section>
+  <h2>Populære bøker</h2>
+  <div class="books" id="books"></div>
+</section>
 
-  <section>
-    <h2>Populære lydbøker</h2>
-    <div class="books" id="books"></div>
-  </section>
-
-</main>
-
-<footer>
-  © 2025 TALE – Alle rettigheter reservert
-</footer>
+<!-- MINI PLAYER -->
+<div class="player">
+  <div>
+    <strong>Eventyrbok</strong><br>
+    <small>Spiller nå</small>
+  </div>
+  <button>▶ Spill</button>
+</div>
 
 <script>
-  const books = [
-    {
-      title: "Snømannen",
-      author: "Jo Nesbø",
-      cover: "https://picsum.photos/300/400?1"
-    },
-    {
-      title: "Hobbiten",
-      author: "J.R.R. Tolkien",
-      cover: "https://picsum.photos/300/400?2"
-    },
-    {
-      title: "Sapiens",
-      author: "Yuval Noah Harari",
-      cover: "https://picsum.photos/300/400?3"
-    },
-    {
-      title: "Harry Potter",
-      author: "J.K. Rowling",
-      cover: "https://picsum.photos/300/400?4"
-    },
-    {
-      title: "1984",
-      author: "George Orwell",
-      cover: "https://picsum.photos/300/400?5"
-    }
-  ];
+const books = [
+  { title: "Mummitrollet", author: "Tove Jansson", cover: "https://picsum.photos/300/400?1" },
+  { title: "Kaptein Sabeltann", author: "Terje Formoe", cover: "https://picsum.photos/300/400?2" },
+  { title: "Dyrene i Hakkebakkeskogen", author: "Thorbjørn Egner", cover: "https://picsum.photos/300/400?3" },
+  { title: "Brødrene Løvehjerte", author: "Astrid Lindgren", cover: "https://picsum.photos/300/400?4" }
+];
 
-  const container = document.getElementById("books");
+const container = document.getElementById("books");
 
-  books.forEach(book => {
-    container.innerHTML += `
-      <div class="book">
-        <div class="cover" style="background-image:url('${book.cover}')"></div>
-        <strong>${book.title}</strong><br>
-        <small>${book.author}</small>
-      </div>
-    `;
-  });
-
-  // Smart tekst som Storytel
-  const hour = new Date().getHours();
-  if (hour >= 20 || hour < 6) {
-    document.getElementById("heroText").innerText =
-      "Perfekte lydbøker for rolig kveldslytting 🌙";
-  }
+books.forEach(book => {
+  container.innerHTML += `
+    <div class="book">
+      <div class="cover" style="background-image:url('${book.cover}')"></div>
+      <strong>${book.title}</strong><br>
+      <small>${book.author}</small>
+    </div>
+  `;
+});
 </script>
 
 </body>
