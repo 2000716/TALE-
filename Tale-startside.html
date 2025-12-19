@@ -26,13 +26,40 @@ body {
 }
 
 /* HEADER */
-header {
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 1rem;
-  text-align: center;
 }
 
-header img {
+.logo {
   height: 42px;
+}
+
+.right-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.start-btn {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0.5rem 0.9rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
 }
 
 /* HERO */
@@ -72,7 +99,7 @@ h2 {
   font-size: 1.2rem;
 }
 
-/* HORIZONTAL BOOK LIST (Storytel-style) */
+/* BOOK LIST */
 .books {
   display: flex;
   gap: 0.8rem;
@@ -136,8 +163,13 @@ h2 {
 
 <body>
 
-<header>
-  <img src="https://static.wixstatic.com/media/fd2fb2_2aadc7e9b83e4b7baa266aee570bd16a~mv2.png" alt="TALE">
+<header class="topbar">
+  <img class="logo" src="https://static.wixstatic.com/media/fd2fb2_2aadc7e9b83e4b7baa266aee570bd16a~mv2.png" alt="TALE">
+
+  <div class="right-actions">
+    <a href="#" class="start-btn">Kom i gang</a>
+    <button class="hamburger">☰</button>
+  </div>
 </header>
 
 <div class="hero">
