@@ -84,6 +84,7 @@ body {
   border-radius: 14px;
   background-size: cover;
   background-position: center;
+  flex-shrink: 0;
 }
 
 /* Animations */
@@ -121,47 +122,43 @@ body {
 <div class="galleries">
 
   <div class="gallery left">
-    <div class="track">
-      <!-- duplicated for smooth loop -->
-      <div class="card" style="background-image:url('https://picsum.photos/200?1')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?2')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?3')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?4')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?1')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?2')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?3')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?4')"></div>
-    </div>
+    <div class="track" id="gallery-1"></div>
   </div>
 
   <div class="gallery right">
-    <div class="track">
-      <div class="card" style="background-image:url('https://picsum.photos/200?5')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?6')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?7')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?8')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?5')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?6')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?7')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?8')"></div>
-    </div>
+    <div class="track" id="gallery-2"></div>
   </div>
 
   <div class="gallery left">
-    <div class="track">
-      <div class="card" style="background-image:url('https://picsum.photos/200?9')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?10')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?11')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?12')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?9')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?10')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?11')"></div>
-      <div class="card" style="background-image:url('https://picsum.photos/200?12')"></div>
-    </div>
+    <div class="track" id="gallery-3"></div>
   </div>
 
 </div>
 
+<script src="info1.js"></script>
+<script>
+const galleries = [
+  document.getElementById("gallery-1"),
+  document.getElementById("gallery-2"),
+  document.getElementById("gallery-3")
+];
+
+galleries.forEach(track => {
+  // Dupliser innhold for smooth scroll
+  const items = [...galleryData, ...galleryData];
+
+  items.forEach(item => {
+    const card = document.createElement("a");
+    card.href = `book.html?id=${item.id}`;
+    card.className = "card";
+    card.style.backgroundImage = `url('${item.image}')`;
+
+    track.appendChild(card);
+  });
+});
+</script>
+
 </body>
 </html>
+
 
