@@ -137,28 +137,28 @@ body {
 
 <script src="Info1.js"></script>
 <script>
-const galleries = [
-  document.getElementById("gallery-1"),
-  document.getElementById("gallery-2"),
-  document.getElementById("gallery-3")
-];
+function createGallery(track, filterFn = () => true) {
+  const items = Object.values(books).filter(filterFn);
+  const duplicated = [...items, ...items];
 
-galleries.forEach(track => {
-  // Dupliser innhold for smooth scroll
-  const items = [...galleryData, ...galleryData];
-
-  items.forEach(item => {
+  duplicated.forEach(book => {
     const card = document.createElement("a");
-    card.href = `book.html?id=${item.id}`;
     card.className = "card";
-    card.style.backgroundImage = `url('${item.image}')`;
+    card.href = `book.html?id=${book.id}`;
+    card.style.backgroundImage = `url('${book.image}')`;
+    card.title = book.title;
 
     track.appendChild(card);
   });
-});
+}
+
+createGallery(document.getElementById("gallery-1"));
+createGallery(
+  document.getElementById("gallery-2"),
+  book => book.category === "eventyr"
+);
+createGallery(
+  document.getElementById("gallery-3"),
+  book => book.category === "barn"
+);
 </script>
-
-</body>
-</html>
-
-
