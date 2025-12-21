@@ -17,7 +17,7 @@ const books = {
   sabeltann: {
     id: "sabeltann",
     title: "Kaptein Sabeltann",
-    image: "https://cdn.sabeltann.no/cover.png",
+    image: "https://do94b8augmkyt.cloudfront.net/thumbnail/9788202761004_877d8b2042a066f015aad35332fc93ba977f5fb0_280.jpg",
     description: "Et spennende sjørøvereventyr.",
     age: "5–9 år",
     publisher: "Forlaget Y",
