@@ -2,7 +2,7 @@ const books = {
   mummitrollet: {
     id: "mummitrollet",
     title: "Mummitrollet",
-    image: "https://publisher-cdn.no/covers/mummi.jpg",
+    image: "https://covers.storytel.com/jpg-640/9788202341060.db0f4112-b4da-42a2-be05-fc2163bd7c92?optimize=high",
     description: "En varm historie om Mummitrollet og vennene.",
     age: "3–6 år",
     publisher: "Forlaget X",
